@@ -1,6 +1,6 @@
 {
   "name": "@codexfratrum/ollama-ai-provider-fork",
-  "version": "1.0.0",
+  "version": "1.0.0-fork.1",
   "description": "Fork of ollama-ai-provider with enhanced streaming and tool calls support",
   "license": "Apache-2.0",
   "author": {
