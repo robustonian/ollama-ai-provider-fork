@@ -52,13 +52,13 @@
   "engines": {
     "node": "^18.0.0 || ^20.0.0"
   },
-  "homepage": "https://github.com/fabianmarquez15/ollama-ai-provider",
+  "homepage": "https://github.com/FabianMHz15/ollama-ai-provider",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fabianmarquez15/ollama-ai-provider"
+    "url": "https://github.com/FabianMHz15/ollama-ai-provider"
   },
   "bugs": {
-    "url": "https://github.com/fabianmarquez15/ollama-ai-provider/issues"
+    "url": "https://github.com/FabianMHz15/ollama-ai-provider/issues"
   },
   "keywords": [
     "ai"
