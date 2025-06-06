@@ -13,7 +13,7 @@
       "url": "https://github.com/sgomez/ollama-ai-provider"
     }
   ],
-  "private": true,
+  "private": false,
   "scripts": {
     "build": "pnpm --filter ollama-ai-provider run build",
     "changeset": "changeset",
@@ -55,7 +55,7 @@
   "homepage": "https://github.com/FabianMHz15/ollama-ai-provider",
   "repository": {
     "type": "git",
-    "url": "https://github.com/FabianMHz15/ollama-ai-provider"
+    "url": "git+https://github.com/FabianMHz15/ollama-ai-provider.git"
   },
   "bugs": {
     "url": "https://github.com/FabianMHz15/ollama-ai-provider/issues"
