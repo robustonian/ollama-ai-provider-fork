@@ -7,6 +7,12 @@
     "name": "Fabian Marquez",
     "email": "fabian.david.mh@hotmail.com"
   },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "NOTICE.md"
+  ],
   "contributors": [
     {
       "name": "Autores Originales",
@@ -15,15 +21,15 @@
   ],
   "private": false,
   "scripts": {
-    "build": "pnpm --filter ollama-ai-provider run build",
+    "build": "pnpm --filter ollama-ai-provider-fork run build",
     "changeset": "changeset",
-    "clean": "pnpm --filter ollama-ai-provider run clean",
-    "dev": "pnpm --filter ollama-ai-provider run dev",
+    "clean": "pnpm --filter ollama-ai-provider-fork run clean",
+    "dev": "pnpm --filter ollama-ai-provider-fork run dev",
     "prepare": "husky",
-    "lint": "pnpm --filter ollama-ai-provider run lint",
-    "type-check": "pnpm --filter ollama-ai-provider run type-check",
-    "prettier-check": "pnpm --filter ollama-ai-provider run prettier-check",
-    "test": "pnpm --filter ollama-ai-provider run test",
+    "lint": "pnpm --filter ollama-ai-provider-fork run lint",
+    "type-check": "pnpm --filter ollama-ai-provider-fork run type-check",
+    "prettier-check": "pnpm --filter ollama-ai-provider-fork run prettier-check",
+    "test": "pnpm --filter ollama-ai-provider-fork run test",
     "ci:release": "pnpm clean && pnpm build && changeset publish",
     "ci:version": "changeset version && pnpm install --no-frozen-lockfile"
   },
@@ -66,5 +72,8 @@
   "packageManager": "pnpm@9.12.3",
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.mjs"
 }
