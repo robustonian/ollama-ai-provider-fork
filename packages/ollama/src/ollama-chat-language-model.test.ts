@@ -1,3 +1,19 @@
+/**
+ * Copyright [yyyy] Original Authors
+ * Copyright [2024] [Tu Nombre]
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Modified by [Tu Nombre]
+ * Changes:
+ * - Added streaming support for tool calls
+ * - [Otros cambios específicos del archivo]
+ */
+
 import { LanguageModelV1Prompt } from '@ai-sdk/provider'
 import {
   convertReadableStreamToArray,
@@ -495,5 +511,56 @@ describe('doStream', () => {
       'content-type': 'application/json',
       'custom-header': 'test-header',
     })
+  })
+
+  it('should stream tool calls directly from ollama response', async () => {
+    server.responseChunks = [
+      `{"model":"qwen3","created_at":"2025-05-27T22:54:58.100509Z","message":{"role":"assistant","content":"","tool_calls":[{"function":{"name":"get_current_weather","arguments":{"format":"celsius","location":"Toronto"}}}]},"done":false}\n`,
+      `{"model":"qwen3","created_at":"2025-05-27T22:54:58.137913Z","message":{"role":"assistant","content":""},"done":true,"total_duration":1820013000,"load_duration":5921416,"prompt_eval_count":10,"prompt_eval_duration":1750224000,"eval_count":10,"eval_duration":60669000}\n`,
+    ]
+
+    const { stream } = await model.doStream({
+      inputFormat: 'prompt',
+      mode: {
+        tools: [
+          {
+            name: 'get_current_weather',
+            parameters: {
+              type: 'object',
+              properties: {
+                location: { type: 'string' },
+                format: { type: 'string', enum: ['celsius', 'fahrenheit'] }
+              },
+              required: ['location', 'format']
+            },
+            type: 'function',
+          },
+        ],
+        type: 'regular',
+      },
+      prompt: TEST_PROMPT,
+    })
+
+    expect(await convertReadableStreamToArray(stream)).toStrictEqual([
+      {
+        argsTextDelta: '{"format":"celsius","location":"Toronto"}',
+        toolCallId: expect.any(String),
+        toolCallType: 'function',
+        toolName: 'get_current_weather',
+        type: 'tool-call-delta',
+      },
+      {
+        args: '{"format":"celsius","location":"Toronto"}',
+        toolCallId: expect.any(String),
+        toolCallType: 'function',
+        toolName: 'get_current_weather',
+        type: 'tool-call',
+      },
+      {
+        finishReason: 'tool-calls',
+        type: 'finish',
+        usage: { completionTokens: 10, promptTokens: 10 },
+      },
+    ])
   })
 })

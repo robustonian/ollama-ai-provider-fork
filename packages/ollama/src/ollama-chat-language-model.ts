@@ -1,3 +1,18 @@
+/**
+ * Copyright [yyyy] Original Authors
+ * Copyright [2024] [Tu Nombre]
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Modified by [Tu Nombre]
+ * Changes:
+ * - Added streaming support for tool calls
+ * - [Otros cambios específicos del archivo]
+ */
 /* eslint-disable camelcase */
 import {
   LanguageModelV1,
@@ -344,7 +359,32 @@ export class OllamaChatLanguageModel implements LanguageModelV1 {
                 completionTokens: value.eval_count,
                 promptTokens: value.prompt_eval_count || 0,
               }
+              return
+            }
 
+            if (value.message.tool_calls && value.message.tool_calls.length > 0) {
+              for (const toolCall of value.message.tool_calls) {
+                const toolCallId = toolCall.id || generateId()
+                const args = JSON.stringify(toolCall.function.arguments)
+                
+                controller.enqueue({
+                  argsTextDelta: args,
+                  toolCallId,
+                  toolCallType: 'function',
+                  toolName: toolCall.function.name,
+                  type: 'tool-call-delta',
+                })
+                
+                controller.enqueue({
+                  args,
+                  toolCallId,
+                  toolCallType: 'function',
+                  toolName: toolCall.function.name,
+                  type: 'tool-call',
+                })
+              }
+              
+              finishReason = 'tool-calls'
               return
             }
 
@@ -411,6 +451,19 @@ const ollamaChatStreamChunkSchema = z.discriminatedUnion('done', [
     message: z.object({
       content: z.string(),
       role: z.string(),
+      tool_calls: z
+        .array(
+          z.object({
+            function: z.object({
+              arguments: z.record(z.any()),
+              name: z.string(),
+            }),
+            id: z.string().optional(),
+            type: z.literal('function').optional(),
+          }),
+        )
+        .optional()
+        .nullable(),
     }),
     model: z.string(),
   }),

@@ -1,6 +1,18 @@
 {
-  "author": "Sergio Gómez Bachiller <decano@gmail.com>",
+  "name": "@codexfratrum/ollama-ai-provider-fork",
+  "version": "1.0.0",
+  "description": "Fork of ollama-ai-provider with enhanced streaming and tool calls support",
   "license": "Apache-2.0",
+  "author": {
+    "name": "Fabian Marquez",
+    "email": "fabian.david.mh@hotmail.com"
+  },
+  "contributors": [
+    {
+      "name": "Autores Originales",
+      "url": "https://github.com/sgomez/ollama-ai-provider"
+    }
+  ],
   "private": true,
   "scripts": {
     "build": "pnpm --filter ollama-ai-provider run build",
@@ -40,16 +52,19 @@
   "engines": {
     "node": "^18.0.0 || ^20.0.0"
   },
-  "homepage": "https://github.com/sgomez/ollama-ai-provider",
+  "homepage": "https://github.com/fabianmarquez15/ollama-ai-provider",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sgomez/ollama-ai-provider.git"
+    "url": "https://github.com/fabianmarquez15/ollama-ai-provider"
   },
   "bugs": {
-    "url": "https://github.com/sgomez/ollama-ai-provider/issues"
+    "url": "https://github.com/fabianmarquez15/ollama-ai-provider/issues"
   },
   "keywords": [
     "ai"
   ],
-  "packageManager": "pnpm@9.12.3"
+  "packageManager": "pnpm@9.12.3",
+  "publishConfig": {
+    "access": "public"
+  }
 }
