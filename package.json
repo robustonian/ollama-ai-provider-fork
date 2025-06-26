@@ -21,15 +21,15 @@
   ],
   "private": false,
   "scripts": {
-    "build": "pnpm --filter ollama-ai-provider-fork run build",
+    "build": "pnpm --filter ollama-ai-provider run build",
     "changeset": "changeset",
-    "clean": "pnpm --filter ollama-ai-provider-fork run clean",
-    "dev": "pnpm --filter ollama-ai-provider-fork run dev",
+    "clean": "pnpm --filter ollama-ai-provider run clean",
+    "dev": "pnpm --filter ollama-ai-provider run dev",
     "prepare": "husky",
-    "lint": "pnpm --filter ollama-ai-provider-fork run lint",
-    "type-check": "pnpm --filter ollama-ai-provider-fork run type-check",
-    "prettier-check": "pnpm --filter ollama-ai-provider-fork run prettier-check",
-    "test": "pnpm --filter ollama-ai-provider-fork run test",
+    "lint": "pnpm --filter ollama-ai-provider run lint",
+    "type-check": "pnpm --filter ollama-ai-provider run type-check",
+    "prettier-check": "pnpm --filter ollama-ai-provider run prettier-check",
+    "test": "pnpm --filter ollama-ai-provider run test",
     "ci:release": "pnpm clean && pnpm build && changeset publish",
     "ci:version": "changeset version && pnpm install --no-frozen-lockfile"
   },
@@ -56,7 +56,7 @@
     "vitest": "^2.1.3"
   },
   "engines": {
-    "node": "^18.0.0 || ^20.0.0"
+    "node": "^18.0.0 || ^20.0.0 || ^22.0.0"
   },
   "homepage": "https://github.com/FabianMHz15/ollama-ai-provider",
   "repository": {
@@ -69,7 +69,14 @@
   "keywords": [
     "ai"
   ],
-  "packageManager": "pnpm@9.12.3",
+  "pnpm": {
+    "overrides": {
+      "@types/react": "19.0.0",
+      "@types/react-dom": "19.0.1",
+      "react": "19.0.0"
+    }
+  },
+  "packageManager": "pnpm@10.12.3",
   "publishConfig": {
     "access": "public"
   },
