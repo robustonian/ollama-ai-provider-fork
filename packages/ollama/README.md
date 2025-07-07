@@ -12,7 +12,7 @@ This provider requires Ollama >= 0.5.0
 The Ollama provider fork is available in the `ollama-ai-provider-fork` module. You can install it with
 
 ```bash
-npm i ollama-ai-provider-fork
+pnpm add @robustonian/ollama-ai-provider-fork
 ```
 
 ## Provider Instance
@@ -20,13 +20,13 @@ npm i ollama-ai-provider-fork
 You can import the default provider instance `ollama` from `ollama-ai-provider-fork`:
 
 ```ts
-import { ollama } from 'ollama-ai-provider-fork';
+import { ollama } from '@robustonian/ollama-ai-provider-fork';
 ```
 
 ## Example
 
 ```ts
-import { ollama } from 'ollama-ai-provider-fork';
+import { ollama } from '@robustonian/ollama-ai-provider-fork';
 import { generateText } from 'ai';
 
 const { text } = await generateText({

@@ -13,7 +13,7 @@ A fork of [ollama-ai-provider](https://github.com/FabianMHz15/ollama-ai-provider
 ## Installation
 
 ```bash
-npm install ollama-ai-provider-fork
+npm install @robustonian/ollama-ai-provider-fork
 # or
 pnpm add ollama-ai-provider-fork
 # or
@@ -23,7 +23,7 @@ yarn add ollama-ai-provider-fork
 ## Quick Start
 
 ```typescript
-import { ollama } from 'ollama-ai-provider-fork';
+import { ollama } from '@robustonian/ollama-ai-provider-fork';
 import { generateText } from 'ai';
 
 const { text } = await generateText({
@@ -39,7 +39,7 @@ console.log(text);
 ### Text Generation with Streaming
 
 ```typescript
-import { ollama } from 'ollama-ai-provider-fork';
+import { ollama } from '@robustonian/ollama-ai-provider-fork';
 import { streamText } from 'ai';
 
 const { textStream } = await streamText({
@@ -55,7 +55,7 @@ for await (const delta of textStream) {
 ### Tool Calls
 
 ```typescript
-import { ollama } from 'ollama-ai-provider-fork';
+import { ollama } from '@robustonian/ollama-ai-provider-fork';
 import { generateText } from 'ai';
 import { z } from 'zod';
 
@@ -76,7 +76,7 @@ const { text } = await generateText({
 ### Object Generation
 
 ```typescript
-import { ollama } from 'ollama-ai-provider-fork';
+import { ollama } from '@robustonian/ollama-ai-provider-fork';
 import { generateObject } from 'ai';
 import { z } from 'zod';
 
@@ -94,7 +94,7 @@ const { object } = await generateObject({
 ## Configuration
 
 ```typescript
-import { createOllama } from 'ollama-ai-provider-fork';
+import { createOllama } from '@robustonian/ollama-ai-provider-fork';
 
 const ollama = createOllama({
   baseURL: 'http://localhost:11434', // Ollama server URL

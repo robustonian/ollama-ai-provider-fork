@@ -1,5 +1,5 @@
 {
-  "name": "ollama-ai-provider-fork",
+  "name": "@robustonian/ollama-ai-provider-fork",
   "version": "1.2.0",
   "description": "Vercel AI Provider for running LLMs locally using Ollama",
   "main": "./dist/index.js",
