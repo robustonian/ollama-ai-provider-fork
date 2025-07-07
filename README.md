@@ -1,6 +1,6 @@
 # ollama-ai-provider-fork
 
-A fork of [ollama-ai-provider](https://github.com/sgomez/ollama-ai-provider) with enhanced streaming and tool calls support for the Vercel AI SDK.
+A fork of [ollama-ai-provider](https://github.com/FabianMHz15/ollama-ai-provider) with enhanced streaming and tool calls support for the Vercel AI SDK.
 
 ## Features
 
@@ -154,9 +154,5 @@ This project is licensed under the Apache 2.0 License. See [LICENSE](./LICENSE.m
 
 ## Credits
 
-- Original project: [ollama-ai-provider](https://github.com/sgomez/ollama-ai-provider) by Sergio Gómez Bachiller
-- This fork by: Fabian Marquez
+This is a fork of Fabian Marquez’s fork of the original project [ollama-ai-provider](https://github.com/sgomez/ollama-ai-pr), which was originally created by sgomez.
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
