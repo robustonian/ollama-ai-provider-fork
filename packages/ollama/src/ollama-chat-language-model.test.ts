@@ -526,12 +526,12 @@ describe('doStream', () => {
           {
             name: 'get_current_weather',
             parameters: {
-              type: 'object',
               properties: {
+                format: { enum: ['celsius', 'fahrenheit'], type: 'string' },
                 location: { type: 'string' },
-                format: { type: 'string', enum: ['celsius', 'fahrenheit'] }
               },
-              required: ['location', 'format']
+              required: ['location', 'format'],
+              type: 'object',
             },
             type: 'function',
           },
@@ -557,7 +557,7 @@ describe('doStream', () => {
         type: 'tool-call',
       },
       {
-        finishReason: 'tool-calls',
+        finishReason: 'stop',
         type: 'finish',
         usage: { completionTokens: 10, promptTokens: 10 },
       },

@@ -23,12 +23,8 @@ yarn add ollama-ai-provider-fork
 ## Quick Start
 
 ```typescript
-import { createOllama } from 'ollama-ai-provider-fork';
+import { ollama } from 'ollama-ai-provider-fork';
 import { generateText } from 'ai';
-
-const ollama = createOllama({
-  baseURL: 'http://localhost:11434',
-});
 
 const { text } = await generateText({
   model: ollama('llama3.1'),
@@ -43,10 +39,8 @@ console.log(text);
 ### Text Generation with Streaming
 
 ```typescript
-import { createOllama } from 'ollama-ai-provider-fork';
+import { ollama } from 'ollama-ai-provider-fork';
 import { streamText } from 'ai';
-
-const ollama = createOllama();
 
 const { textStream } = await streamText({
   model: ollama('llama3.1'),
@@ -61,11 +55,9 @@ for await (const delta of textStream) {
 ### Tool Calls
 
 ```typescript
-import { createOllama } from 'ollama-ai-provider-fork';
+import { ollama } from 'ollama-ai-provider-fork';
 import { generateText } from 'ai';
 import { z } from 'zod';
-
-const ollama = createOllama();
 
 const { text } = await generateText({
   model: ollama('llama3.1'),
@@ -84,11 +76,9 @@ const { text } = await generateText({
 ### Object Generation
 
 ```typescript
-import { createOllama } from 'ollama-ai-provider-fork';
+import { ollama } from 'ollama-ai-provider-fork';
 import { generateObject } from 'ai';
 import { z } from 'zod';
-
-const ollama = createOllama();
 
 const { object } = await generateObject({
   model: ollama('llama3.1'),
@@ -104,6 +94,8 @@ const { object } = await generateObject({
 ## Configuration
 
 ```typescript
+import { createOllama } from 'ollama-ai-provider-fork';
+
 const ollama = createOllama({
   baseURL: 'http://localhost:11434', // Ollama server URL
   headers: {
