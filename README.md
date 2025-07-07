@@ -1,6 +1,6 @@
 # ollama-ai-provider-fork
 
-A fork of [ollama-ai-provider](https://github.com/FabianMHz15/ollama-ai-provider) with enhanced streaming and tool calls support for the Vercel AI SDK.
+A fork of [ollama-ai-provider](https://github.com/robustonian/ollama-ai-provider-fork) with enhanced streaming and tool calls support for the Vercel AI SDK.
 
 ## Features
 
@@ -15,9 +15,9 @@ A fork of [ollama-ai-provider](https://github.com/FabianMHz15/ollama-ai-provider
 ```bash
 npm install @robustonian/ollama-ai-provider-fork
 # or
-pnpm add ollama-ai-provider-fork
+pnpm add @robustonian/ollama-ai-provider-fork
 # or
-yarn add ollama-ai-provider-fork
+yarn add @robustonian/ollama-ai-provider-fork
 ```
 
 ## Quick Start

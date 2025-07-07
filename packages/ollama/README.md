@@ -1,6 +1,6 @@
 # Ollama Provider Fork for the Vercel AI SDK
 
-The **[Ollama Provider Fork](https://github.com/FabianMHz15/ollama-ai-provider)** for the [Vercel AI SDK](https://sdk.vercel.ai/docs)
+The **[Ollama Provider Fork](https://github.com/robustonian/ollama-ai-provider-fork)** for the [Vercel AI SDK](https://sdk.vercel.ai/docs)
 contains enhanced language model support for the Ollama APIs with improved streaming and tool calls support, plus embedding model support for the Ollama embeddings API.
 
 ## Requirements
@@ -17,7 +17,7 @@ pnpm add @robustonian/ollama-ai-provider-fork
 
 ## Provider Instance
 
-You can import the default provider instance `ollama` from `ollama-ai-provider-fork`:
+You can import the default provider instance `ollama` from `@robustonian/ollama-ai-provider-fork`:
 
 ```ts
 import { ollama } from '@robustonian/ollama-ai-provider-fork';
@@ -45,4 +45,4 @@ This fork includes:
 
 ## Documentation
 
-Please check out the **[Ollama provider documentation](https://github.com/FabianMHz15/ollama-ai-provider)** for more information.
+Please check out the **[Ollama provider documentation](https://github.com/robustonian/ollama-ai-provider-fork)** for more information.
